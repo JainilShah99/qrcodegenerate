@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generater</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+   
+    
+    
+</head>
+<body>
+    <div class="container">
+        <p>Enter Your Text OR URL Link</p>
+        <input type="text" name="" id="qrtext" placeholder="Text or URL Link">
+
+        <div class="imgbox">
+
+               <center><img  id="qrimage"></center> 
+        </div>
+
+        <button onclick="generategrcode()">Generate QRCode</button>
+        
+   
+    <!-- <div class="download" id="download">
+        <button class="btn" style="width:100%" onclick="download()"><i class="fa fa-download"></i> Download</button>
+    </div> -->
+  
+</div>
+    <script>
+
+        let imgbox = document.querySelector(".imgbox");
+        let qrcode = document.getElementById("qrimage");
+        let qrtext = document.getElementById("qrtext");
+
+        function generategrcode()
+        {
+            if(qrtext.value.length > 0)
+            {
+                qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + qrtext.value;
+                imgbox.classList.add("show-img");
+      
+
+            }
+            else{
+                    qrtext.classList.add("error");
+                    setTimeout(()=>{
+                        qrtext.classList.remove("error");
+                    },1000);
+              
+            }
+        }
+
+       
+        
+
+    </script>
+</body>
+</html>
